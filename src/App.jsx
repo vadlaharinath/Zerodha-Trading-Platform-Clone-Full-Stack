@@ -18,6 +18,7 @@ import Alerts from './Components/OrdersNested/Alerts';
 import All from './Components/HoldingsNested/All';
 import Equity from './Components/HoldingsNested/Equity';
 import MutualFunds from './Components/HoldingsNested/MutualFunds';
+import SignUp from './Components/SignUp/SignUp';
 
 // import LeftSection from './Components/LeftSection/LeftSection';
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <>
       {
-        (location.pathname === "/" || location.pathname === "/login" ? null : <NavBar />)
+        (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/signUp" ? null : <NavBar />)
       }
       {/* {
         (location.pathname === "/Orders/OrdersHome" || location.pathname === "/Orders/GTT" || location.pathname === "/Orders/Baskets" || location.pathname === "/Orders/SIP" || location.pathname === "/Orders/Alerts"? null : <Orders />)
@@ -39,7 +40,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="Login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="signUp" element={<SignUp />} />
         <Route path="DashBoard" element={<DashBoard />} />
         <Route path="Orders" element={<Orders />}>
           {/* <Route index element={<Orders/>}/> */}

@@ -107,3 +107,7 @@ img:hover{
   text-decoration: none;
   color: #444;
 }
+#button{
+  border:1px black solid;
+  padding:5px;
+}

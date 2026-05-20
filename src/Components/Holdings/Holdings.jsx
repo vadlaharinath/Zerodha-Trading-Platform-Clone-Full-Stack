@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LeftSection from "../LeftSection/LeftSection";
 import { Link } from 'react-router-dom';
 import './Holdings.css';
+import axios from 'axios';
 
 function Holdings() {
+      const token = localStorage.getItem("token");
+  console.log("Orders_access_token", token);
+      async function getHoldings(e) {
+    console.log("getHoldings", e);
+    try {
+      const response = await axios.get("http://localhost:9000/Holdings", {
+        headers: {
+          method: "GET",
+          Authorization: `${token}`,
+        },
+      });
+      console.log("response", response);
+    } catch (error) {
+      console.log("error", error.message);
+    }
+  }
+  useEffect(()=>{
+    getHoldings();
+  },[])
     return (
         <div className="main-container">
             <div className="left-bar">

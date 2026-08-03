@@ -19,6 +19,8 @@ import All from './Components/HoldingsNested/All';
 import Equity from './Components/HoldingsNested/Equity';
 import MutualFunds from './Components/HoldingsNested/MutualFunds';
 import SignUp from './Components/SignUp/SignUp';
+import { ToastContainer } from "react-toastify";
+import SendOtp from './Components/Otp-section/SendOtp';
 
 // import LeftSection from './Components/LeftSection/LeftSection';
 
@@ -29,7 +31,7 @@ function App() {
   return (
     <>
       {
-        (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/signUp" ? null : <NavBar />)
+        (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/signUp" ||location.pathname === "/send-otp" ? null : <NavBar />)
       }
       {/* {
         (location.pathname === "/Orders/OrdersHome" || location.pathname === "/Orders/GTT" || location.pathname === "/Orders/Baskets" || location.pathname === "/Orders/SIP" || location.pathname === "/Orders/Alerts"? null : <Orders />)
@@ -41,9 +43,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="signUp" element={<SignUp />} />
-        <Route path="DashBoard" element={<DashBoard />} />
-        <Route path="Orders" element={<Orders />}>
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/send-otp" element={<SendOtp />} />
+        <Route path="/DashBoard" element={<DashBoard />} />
+        <Route path="/Orders" element={<Orders />}>
           {/* <Route index element={<Orders/>}/> */}
           <Route path="OrdersHome" element={<OrdersHome />} />
           <Route path="GTT" element={<GTT />} />
@@ -58,13 +61,13 @@ function App() {
           <Route path="MutualFunds" element={<MutualFunds />} />
         </Route>
 
-
-
         <Route path="/Positions" element={<Positions />} />
         <Route path="/Bits" element={<Bits />} />
         <Route path="/Funds" element={<Funds />} />
 
+
       </Routes>
+       <ToastContainer />
 
 
 
